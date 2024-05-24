@@ -14,7 +14,7 @@ void WriteExcel(string filename)
             sheet->writeStr(2, 1, L"Hello, World !");
             sheet->writeNum(3, 1, 1000);
         }
-        book->save(L"example.xls");
+        book->save(L"exemple.xls");
         book->release();
     }
 }
