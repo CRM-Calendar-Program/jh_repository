@@ -1,7 +1,9 @@
+#include <iostream>
 #include "libxl.h"
+using namespace std;
 using namespace libxl;
 
-int main()
+void WriteExcel(string filename)
 {
     Book* book = xlCreateBook(); // xlCreateXMLBook() for xlsx
     if (book)
@@ -15,5 +17,10 @@ int main()
         book->save(L"example.xls");
         book->release();
     }
+}
+
+int main()
+{
+    
     return 0;
 }
