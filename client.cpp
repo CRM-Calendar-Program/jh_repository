@@ -12,14 +12,33 @@ Client::Client(int id, std::string name, int gender, int age, std::string phone_
 
 Client::~Client() {}
 
-void Client::Save(int mileage)
+void Client::SaveMileage(int cost)
 {
-	this->mileage += mileage;
+	int temp = cost * 0.1;
+	mileage += temp;
 }
 
-void Client::Deducted(int cost)
+int Client::PayMileage(int cost)
 {
-	if (mileage > 0) mileage -= cost;
+	if (mileage < 100)
+	{
+		cout << "마일리지가 충분하지 않습니다" << endl;
+		return cost;
+	}
+	else
+	{
+		int temp = mileage - cost;
+		if (temp < 0)
+		{
+			mileage = 0;
+			return cost - mileage;
+		}
+		else
+		{
+			mileage -= cost;
+			return 0;
+		}
+	}
 }
 
 int Client::GetID()

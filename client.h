@@ -23,8 +23,8 @@ public:
 	virtual void ShowMemInfo() const = 0;
 	virtual int getDisRate() = 0;
 
-	void Save(int mileage);
-	void Deducted(int cost);
+	void SaveMileage(int cost);
+	int PayMileage(int cost);
 	// void record_history(int t, int length);
 	int GetID();
 };
