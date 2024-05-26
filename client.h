@@ -1,6 +1,5 @@
-#ifndef CLIENT_H
-#define CLIENT_H
-
+#pragma once
+#include <iostream>
 #include <string>
 
 class Client
@@ -28,5 +27,3 @@ public:
 	// void record_history(int t, int length);
 	int GetID();
 };
-
-#endif
