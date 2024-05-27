@@ -13,6 +13,6 @@ public:
 	DataHandler();
 	~DataHandler();
 
-	void readCSV(std::string filename);
-	void writeCSV(std::string filename);
+	void ReadCSV(std::string filename);
+	void WriteCSV(std::string filename);
 };

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+enum data_type { id, name, gender, age, phone_number, visit, mileage, service_history };
+
 class Client
 {
 private:
@@ -23,5 +25,8 @@ public:
 	int PayMileage(int cost);
 	// void record_history(int t, int length);
 
-	int GetID();
+	void PutIntData(int data_type, int data);
+	void PutStringData(int data_type, std::string data);
+	int GetIntData(int data_type);
+	std::string GetStringData(int data_type);
 };

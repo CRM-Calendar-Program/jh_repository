@@ -40,7 +40,46 @@ int Client::PayMileage(int cost)
 	}
 }
 
-int Client::GetID()
+void Client::PutIntData(int data_type, int data)
 {
-	return id;
+	if (data_type == 0) id = data;
+	else if (data_type == 2) gender = data;
+	else if (data_type == 3) age = data;
+	else if (data_type == 5) visit = data;
+	else if (data_type == 6) mileage = data;
+	else std::cout << "Type entered does not exit" << std::endl;
+}
+
+void Client::PutStringData(int data_type, std::string data)
+{
+	if (data_type == 1) name = data;
+	else if (data_type == 4) phone_number = data;
+	else if (data_type == 7) service_history = data;
+	else std::cout << "Type entered does not exit" << std::endl;
+}
+
+int Client::GetIntData(int data_type)
+{
+	if (data_type == 0) return id;
+	else if (data_type == 2) return gender;
+	else if (data_type == 3) return age;
+	else if (data_type == 5) return visit;
+	else if (data_type == 6) return mileage;
+	else
+	{
+		std::cout << "Type entered does not exit" << std::endl;
+		return NULL;
+	}
+}
+
+std::string Client::GetStringData(int data_type)
+{
+	if (data_type == 1) return name;
+	else if (data_type == 4) return phone_number;
+	else if (data_type == 7) return service_history;
+	else
+	{
+		std::cout << "Type entered does not exit" << std::endl;
+		return NULL;
+	}
 }
