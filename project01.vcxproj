@@ -131,12 +131,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="data_handler.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
+    <ClInclude Include="data_handler.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="people.csv" />

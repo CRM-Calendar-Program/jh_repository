@@ -21,6 +21,7 @@ void WriteExcel(string filename)
 
 int main()
 {
-    
+    string filename = "people.csv";
+
     return 0;
 }
