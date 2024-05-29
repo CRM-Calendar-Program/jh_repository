@@ -9,8 +9,8 @@ class Client
 private:
 	int id;
 	std::string name;
-	int gender;
-	int birthday;
+	std::string gender;
+	std::string birthday;
 	std::string phone_number;
 	int visit;
 	int mileage;
@@ -18,6 +18,7 @@ private:
 protected:
 	int type;	// ¸â¹ö½Ê Á¾·ù
 public:
+	Client();
 	Client(int id, std::string name, int gender, int birthday, std::string phone_number, int visit, int mileage, std::string service_history);
 	~Client();
 
@@ -29,4 +30,5 @@ public:
 	void PutStringData(int data_type, std::string data);
 	int GetIntData(int data_type);
 	std::string GetStringData(int data_type);
+	std::string toCSV();
 };

@@ -36,5 +36,6 @@
   <ItemGroup>
     <None Include="people.csv" />
     <None Include="test1.csv" />
+    <None Include="test2.csv" />
   </ItemGroup>
 </Project>

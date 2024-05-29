@@ -2,6 +2,11 @@
 
 using namespace std;
 
+Client::Client()
+{
+
+}
+
 Client::Client(int id, std::string name, int gender, int birthday, std::string phone_number, int visit, int mileage, std::string service_history)
 {
 	this->id = id; this->name = name; this->gender = gender; this->birthday = birthday;
@@ -43,8 +48,6 @@ int Client::PayMileage(int cost)
 void Client::PutIntData(int data_type, int data)
 {
 	if (data_type == 0) id = data;
-	else if (data_type == 2) gender = data;
-	else if (data_type == 3) birthday = data;
 	else if (data_type == 5) visit = data;
 	else if (data_type == 6) mileage = data;
 	else std::cout << "Type entered does not exit" << std::endl;
@@ -53,6 +56,8 @@ void Client::PutIntData(int data_type, int data)
 void Client::PutStringData(int data_type, std::string data)
 {
 	if (data_type == 1) name = data;
+	else if (data_type == 2) gender = data;
+	else if (data_type == 3) birthday = data;
 	else if (data_type == 4) phone_number = data;
 	else if (data_type == 7) service_history = data;
 	else std::cout << "Type entered does not exit" << std::endl;
@@ -61,8 +66,6 @@ void Client::PutStringData(int data_type, std::string data)
 int Client::GetIntData(int data_type)
 {
 	if (data_type == 0) return id;
-	else if (data_type == 2) return gender;
-	else if (data_type == 3) return birthday;
 	else if (data_type == 5) return visit;
 	else if (data_type == 6) return mileage;
 	else
@@ -75,6 +78,8 @@ int Client::GetIntData(int data_type)
 std::string Client::GetStringData(int data_type)
 {
 	if (data_type == 1) return name;
+	else if (data_type == 2) return gender;
+	else if (data_type == 3) return birthday;
 	else if (data_type == 4) return phone_number;
 	else if (data_type == 7) return service_history;
 	else
@@ -82,4 +87,24 @@ std::string Client::GetStringData(int data_type)
 		std::cout << "Type entered does not exit" << std::endl;
 		return NULL;
 	}
+}
+
+std::string Client::toCSV()
+{
+	string line;
+	for (int i = 0; i < 8; i++)
+	{
+		if ((i == 0) || (i == 5) || (i == 6))
+		{
+			line += std::to_string(GetIntData(i));
+			line += ",";
+		}
+		else if (i == 7) line += GetStringData(i);
+		else
+		{
+			line += GetStringData(i);
+			line += ",";
+		}
+	}
+	return line;
 }

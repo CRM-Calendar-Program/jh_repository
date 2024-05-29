@@ -3,19 +3,18 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <vector>
 #include "client.h"
 
 class DataHandler
 {
 private:
-	std::vector<Client> clients;
+	Client* clients;
 	int next_pointer;
 public:
-	DataHandler();
+	DataHandler(int size);
 	~DataHandler();
 
 	void ReadCSV(std::string filename);
 	void WriteCSV(std::string filename);
-	int GetData(int index);
+	std::string GetData(int index);
 };

@@ -1,8 +1,13 @@
 #include "data_handler.h"
 
-DataHandler::DataHandler() {}
+DataHandler::DataHandler(int size)
+{
+	clients = new Client[size];
+}
 
-DataHandler::~DataHandler() {}
+DataHandler::~DataHandler() {
+	delete[] clients;
+}
 
 void DataHandler::ReadCSV(std::string filename)
 {
@@ -13,39 +18,28 @@ void DataHandler::ReadCSV(std::string filename)
 		return;
 	}
 
-	int i, g, b, v, m;
-	std::string n, p, s;
-	// std::string line;
+	std::string line;
 	int k = 0; int row = -1;
-	while (file >> i >> n >> g >> b >> p >> v >> m >> s)
+	while (getline(file, line))
 	{
-		// std::stringstream ss(line);
-		// std::string cell;
+		std::stringstream ss(line);
+		std::string cell;
 
 		if (k != 0)
 		{
-			clients.emplace_back(i, n, g, b, p, v, m, s);
-			/*
-			std::cout << "= 1 =" << std::endl;
 			int col = 0;
-			std::cout << "= 2 =" << std::endl;
 			while (getline(ss, cell, ','))
 			{
-				std::cout << "= 3 =" << std::endl;
-				if (col == id) {
-					std::cout << "= 4 =" << std::endl;
-					clients[row].PutIntData(id, stoi(cell));
-					std::cout << "= 5 =" << std::endl;
-				}
+				if (col == id) clients[row].PutIntData(id, stoi(cell));
 				else if (col == name) clients[row].PutStringData(name, cell);
-				else if (col == gender) clients[row].PutIntData(gender, stoi(cell));
-				else if (col == birthday) clients[row].PutIntData(birthday, stoi(cell));
+				else if (col == gender) clients[row].PutStringData(gender, cell);
+				else if (col == birthday) clients[row].PutStringData(birthday, cell);
 				else if (col == phone_number) clients[row].PutStringData(phone_number, cell);
 				else if (col == visit) clients[row].PutIntData(visit, stoi(cell));
 				else if (col == mileage) clients[row].PutIntData(mileage, stoi(cell));
 				else if (col == service_history) clients[row].PutStringData(service_history, cell);
+				col++;
 			}
-			*/
 		}
 		k++;
 		row++;
@@ -63,17 +57,16 @@ void DataHandler::WriteCSV(std::string filename)
 		return;
 	}
 
-	file << "No.,이름,성별,나이,전화번호,방문횟수,마일리지,서비스 기록" << std::endl;
+	file << "번호,이름,성별,생일,전화번호,방문횟수,마일리지,서비스 기록" << std::endl;
 
-	for (const auto& Client : clients)
+	for (int i = 0; i < next_pointer - 1; i++)
 	{
-		// file << client.toCSV() << "\n"
+		file << clients[i].toCSV() << "\n";
 	}
-
-	int row = 0;
+	file.close();
 }
 
-int DataHandler::GetData(int index)
+std::string DataHandler::GetData(int index)
 {
-	return clients[index].GetIntData(birthday);
+	return clients[index].GetStringData(birthday);
 }
