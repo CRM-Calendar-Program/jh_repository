@@ -9,11 +9,13 @@
 class DataHandler
 {
 private:
-	std::vector<Client> client;
+	std::vector<Client> clients;
+	int next_pointer;
 public:
 	DataHandler();
 	~DataHandler();
 
 	void ReadCSV(std::string filename);
 	void WriteCSV(std::string filename);
+	int GetData(int index);
 };

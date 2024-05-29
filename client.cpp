@@ -2,9 +2,9 @@
 
 using namespace std;
 
-Client::Client(int id, std::string name, int gender, int age, std::string phone_number, int visit, int mileage, std::string service_history)
+Client::Client(int id, std::string name, int gender, int birthday, std::string phone_number, int visit, int mileage, std::string service_history)
 {
-	this->id = id; this->name = name; this->gender = gender; this->age = age;
+	this->id = id; this->name = name; this->gender = gender; this->birthday = birthday;
 	this->phone_number = phone_number; this->visit = visit; this->mileage = mileage;
 	this->service_history = service_history;
 }
@@ -44,7 +44,7 @@ void Client::PutIntData(int data_type, int data)
 {
 	if (data_type == 0) id = data;
 	else if (data_type == 2) gender = data;
-	else if (data_type == 3) age = data;
+	else if (data_type == 3) birthday = data;
 	else if (data_type == 5) visit = data;
 	else if (data_type == 6) mileage = data;
 	else std::cout << "Type entered does not exit" << std::endl;
@@ -62,7 +62,7 @@ int Client::GetIntData(int data_type)
 {
 	if (data_type == 0) return id;
 	else if (data_type == 2) return gender;
-	else if (data_type == 3) return age;
+	else if (data_type == 3) return birthday;
 	else if (data_type == 5) return visit;
 	else if (data_type == 6) return mileage;
 	else

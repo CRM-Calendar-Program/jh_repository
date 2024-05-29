@@ -1,4 +1,5 @@
 #include <iostream>
+#include "data_handler.h"
 #include "libxl.h"
 using namespace std;
 using namespace libxl;
@@ -21,7 +22,12 @@ void WriteExcel(string filename)
 
 int main()
 {
-    string filename = "people.csv";
+    string filename = "test1.csv";
+    DataHandler DB;
+
+    DB.ReadCSV(filename);
+    
+    cout << DB.GetData(0) << endl;
 
     return 0;
 }

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-enum data_type { id, name, gender, age, phone_number, visit, mileage, service_history };
+enum data_type { id, name, gender, birthday, phone_number, visit, mileage, service_history };
 
 class Client
 {
@@ -10,7 +10,7 @@ private:
 	int id;
 	std::string name;
 	int gender;
-	int age;
+	int birthday;
 	std::string phone_number;
 	int visit;
 	int mileage;
@@ -18,7 +18,7 @@ private:
 protected:
 	int type;	// ¸â¹ö½Ê Á¾·ù
 public:
-	Client(int id, std::string name, int gender, int age, std::string phone_number, int visit, int mileage, std::string service_history);
+	Client(int id, std::string name, int gender, int birthday, std::string phone_number, int visit, int mileage, std::string service_history);
 	~Client();
 
 	void SaveMileage(int cost);
