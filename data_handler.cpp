@@ -31,13 +31,34 @@ void DataHandler::ReadCSV(std::string filename)
 			while (getline(ss, cell, ','))
 			{
 				if (col == id) clients[row].PutIntData(id, stoi(cell));
-				else if (col == name) clients[row].PutStringData(name, cell);
-				else if (col == gender) clients[row].PutStringData(gender, cell);
-				else if (col == birthday) clients[row].PutStringData(birthday, cell);
-				else if (col == phone_number) clients[row].PutStringData(phone_number, cell);
-				else if (col == visit) clients[row].PutIntData(visit, stoi(cell));
-				else if (col == mileage) clients[row].PutIntData(mileage, stoi(cell));
-				else if (col == service_history) clients[row].PutStringData(service_history, cell);
+				else if (col == name) {
+					cell.erase(0, 1);
+					clients[row].PutStringData(name, cell);
+				}
+				else if (col == gender) {
+					cell.erase(0, 1);
+					clients[row].PutStringData(gender, cell);
+				}
+				else if (col == birthday) {
+					cell.erase(0, 1);
+					clients[row].PutStringData(birthday, cell);
+				}
+				else if (col == phone_number) {
+					cell.erase(0, 1);
+					clients[row].PutStringData(phone_number, cell);
+				}
+				else if (col == visit) {
+					cell.erase(0, 1);
+					clients[row].PutIntData(visit, stoi(cell));
+				}
+				else if (col == mileage) {
+					cell.erase(0, 1);
+					clients[row].PutIntData(mileage, stoi(cell));
+				}
+				else if (col == service_history) {
+					cell.erase(0, 1);
+					clients[row].PutStringData(service_history, cell);
+				}
 				col++;
 			}
 		}
@@ -68,5 +89,5 @@ void DataHandler::WriteCSV(std::string filename)
 
 std::string DataHandler::GetData(int index)
 {
-	return clients[index].GetStringData(birthday);
+	return clients[index].GetStringData(name);
 }
