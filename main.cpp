@@ -49,9 +49,6 @@ int main()
     size = GetSize(filename);
     DataHandler DB(size);
     DB.ReadCSV(filename);
-    
-    cout << DB.GetData(0) << endl;
-
     DB.WriteCSV(filename_o);
 
     return 0;
