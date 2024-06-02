@@ -63,6 +63,17 @@ void Client::PutStringData(int data_type, std::string data)
 	else std::cout << "Type entered does not exit" << std::endl;
 }
 
+void Client::PrintInfo() const
+{
+	std::cout << "이름 : " << name << std::endl;
+	std::cout << "성별 : " << gender << std::endl;
+	std::cout << "생일 : " << birthday << std::endl;
+	std::cout << "전화번호 : " << phone_number << std::endl;
+	std::cout << "방문횟수 : " << visit << std::endl;
+	std::cout << "마일리지 : " << mileage << std::endl;
+	std::cout << "이전 서비스 : " << service_history << std::endl;
+}
+
 int Client::GetIntData(int data_type)
 {
 	if (data_type == 0) return id;

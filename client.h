@@ -28,6 +28,7 @@ public:
 
 	void PutIntData(int data_type, int data);
 	void PutStringData(int data_type, std::string data);
+	void PrintInfo() const;
 	int GetIntData(int data_type);
 	std::string GetStringData(int data_type);
 	std::string toCSV();

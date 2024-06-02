@@ -44,7 +44,7 @@ void DataHandler::ReadCSV(std::string filename)
 		k++;
 		row++;
 	}
-	next_pointer = row;
+	next_pointer = row - 1;
 }
 
 void DataHandler::WriteCSV(std::string filename)
@@ -65,9 +65,15 @@ void DataHandler::WriteCSV(std::string filename)
 	file.close();
 }
 
-Client& DataHandler::FindClient(std::string birthday)
+void DataHandler::FindClient(std::string birthday)
 {
-
+	for (int i = 0; i < next_pointer; i++)
+		if (clients[i].GetStringData(3) == birthday)
+		{
+			clients[i].PrintInfo();
+			return;
+		}
+	std::cout << "Client with birthday " << birthday << " not found" << std::endl;
 }
 
 std::string DataHandler::GetData(int index)
