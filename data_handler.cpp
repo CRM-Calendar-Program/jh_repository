@@ -76,6 +76,31 @@ void DataHandler::FindClient(std::string birthday)
 	std::cout << "Client with birthday " << birthday << " not found" << std::endl;
 }
 
+void DataHandler::AddClient()
+{
+	std::string input;
+	std::cout << "번호, 이름, 성별, 생일, 전화번호, 방문횟수, 마일리지, 서비스 기록\n" << ">> ";
+	getline(std::cin, input);
+
+	std::stringstream ss(input);
+	std::string cell;
+	int index = next_pointer;
+	int col = 0;
+	while (getline(ss, cell, ','))
+	{
+		if (col == id) clients[index].PutIntData(id, index + 1);
+		else if (col == name) clients[index].PutStringData(name, cell);
+		else if (col == gender) clients[index].PutStringData(gender, cell);
+		else if (col == birthday) clients[index].PutStringData(birthday, cell);
+		else if (col == phone_number) clients[index].PutStringData(phone_number, cell);
+		else if (col == visit) clients[index].PutIntData(visit, stoi(cell));
+		else if (col == mileage) clients[index].PutIntData(mileage, stoi(cell));
+		else if (col == service_history) clients[index].PutStringData(service_history, cell);
+		col++;
+	}
+	next_pointer++;
+}
+
 std::string DataHandler::GetData(int index)
 {
 	return clients[index].GetStringData(name);
