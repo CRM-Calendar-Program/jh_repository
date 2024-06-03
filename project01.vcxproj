@@ -138,13 +138,16 @@
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="system_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
     <ClInclude Include="data_handler.h" />
+    <ClInclude Include="system_menu.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="people.csv" />
+    <None Include="summary_csv.py" />
     <None Include="summery_sentence.py">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </None>
