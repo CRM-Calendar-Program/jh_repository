@@ -1,16 +1,15 @@
-import vertex_ai as vertex
+import csv
+import pandas as pd
+from gensim.summarization import summarize
 
-# API 키 설정
-api_key = "YOUR_API_KEY"
+# CSV 파일 읽기
+data = pd.read_csv('data.csv')
 
-# Vertex AI 클라이언트 생성
-client = vertex.ApiClient(api_key)
-
-# 요약할 텍스트 설정
-text = "추출된 텍스트를 입력하세요."
+# 요약할 텍스트 추출
+text = data['텍스트 열 이름'].tolist()  # 텍스트 열 이름을 변경하세요.
 
 # 텍스트 요약
-response = client.models.summarize_text(text)
+summary = summarize(text)
 
-# 요약 텍스트 출력
-print(response.summary)
+# 요약 출력
+print(summary)
