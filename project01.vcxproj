@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="people.csv" />
+    <None Include="summary.py" />
     <None Include="summary_csv.py" />
     <None Include="summery_sentence.py">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
