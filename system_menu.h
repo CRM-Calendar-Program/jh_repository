@@ -13,7 +13,8 @@ public:
 	void SetCursorPosition(int x, int y);
 	void ShowMenu();
 	void ShowClientMenu();
-	void ShowDsnMenu();
+	void ShowMileageMenu();
+	void ShowHistoryMenu();
 	void Register();
 
 	void CleanDisplay() { system("cls"); }

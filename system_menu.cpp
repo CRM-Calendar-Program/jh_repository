@@ -15,7 +15,8 @@ void Display::ShowMenu()
 	std::cout << "------------Menu-------------" << std::endl;
 	std::cout << "1. 绊按包府" << std::endl;
 	std::cout << "2. 付老府瘤 包府" << std::endl;
-	std::cout << "3. 老沥包府" << std::endl;
+	std::cout << "3. 辑厚胶 洒胶配府" << std::endl;
+	// std::cout << "4. 老沥包府" << std::endl;
 
 	SetCursorPosition(0, 5);
 	std::cout << "---------坷疵狼 老沥----------" << std::endl;
@@ -29,7 +30,12 @@ void Display::ShowClientMenu()
 
 }
 
-void Display::ShowDsnMenu()
+void Display::ShowMileageMenu()
+{
+
+}
+
+void Display::ShowHistoryMenu()
 {
 
 }
