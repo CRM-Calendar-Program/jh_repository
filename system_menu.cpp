@@ -15,8 +15,27 @@ void Display::ShowMenu()
 	std::cout << "------------Menu-------------" << std::endl;
 	std::cout << "1. 고객관리" << std::endl;
 	std::cout << "2. 마일리지 관리" << std::endl;
-	std::cout << "3. 통계" << std::endl;
+	std::cout << "3. 일정관리" << std::endl;
 
+	SetCursorPosition(0, 5);
+	std::cout << "---------오늘의 일정----------" << std::endl;
+
+	SetCursorPosition(0, 6);
+	// 오늘의 일정부분 출력
+}
+
+void Display::ShowClientMenu()
+{
+
+}
+
+void Display::ShowDsnMenu()
+{
+
+}
+
+void Display::Register()
+{
 	SetCursorPosition(0, 5);
 	std::cout << "---------오늘의 일정----------" << std::endl;
 	std::cout << "┌";
@@ -37,19 +56,4 @@ void Display::ShowMenu()
 	for (int i = 0; i < box_x; i++)
 		std::cout << "─";
 	std::cout << "┘";
-}
-
-void Display::ShowMemMenu()
-{
-
-}
-
-void Display::ShowDsnMenu()
-{
-
-}
-
-void Display::Register()
-{
-
 }

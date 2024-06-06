@@ -1,5 +1,6 @@
 #include <iostream>
 #include "data_handler.h"
+#include "system_menu.h"
 #include "libxl.h"
 using namespace std;
 using namespace libxl;
@@ -44,11 +45,15 @@ int main()
 {
     string filename = "test1.csv";
     string filename_o = "test2.csv";
+    Display display;
     int size;
+
+    //display.ShowMenu();
 
     size = GetSize(filename);
     DataHandler DB(size);
     DB.ReadCSV(filename);
+    DB.FindClient("020110");
     DB.WriteCSV(filename_o);
 
     return 0;

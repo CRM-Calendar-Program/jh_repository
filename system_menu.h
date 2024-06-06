@@ -12,7 +12,7 @@ private:
 public:
 	void SetCursorPosition(int x, int y);
 	void ShowMenu();
-	void ShowMemMenu();
+	void ShowClientMenu();
 	void ShowDsnMenu();
 	void Register();
 
