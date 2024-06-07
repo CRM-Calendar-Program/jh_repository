@@ -2,6 +2,10 @@
 #define SYSTEM_MENU_H
 #include <iostream>
 #include <windows.h>
+#include <conio.h>
+#include <string>
+#include "data_handler.h"
+#include "client.h"
 
 class Display
 {
@@ -15,6 +19,7 @@ public:
 	void ShowClientMenu();
 	void ShowMileageMenu();
 	void ShowHistoryMenu();
+	void DailyMenu();
 	void Register();
 
 	void CleanDisplay() { system("cls"); }

@@ -23,21 +23,47 @@ void Display::ShowMenu()
 
 	SetCursorPosition(0, 6);
 	// 오늘의 일정부분 출력
+
+	while (true)
+	{
+		if (_kbhit)
+		{
+			int ch = _getch();
+
+		}
+	}
 }
 
 void Display::ShowClientMenu()
 {
+	CleanDisplay();
+	std::cout << "------------고객관리-------------" << std::endl;
+	std::cout << "1. 고객찾기" << std::endl;
+	std::cout << "2. 고객추가" << std::endl;
 
+	// 입력 받고 그에 해당하는 기능 추가
 }
 
 void Display::ShowMileageMenu()
 {
+	std::string birthday;
 
+	CleanDisplay();
+	std::cout << "----------마일리지 관리-----------" << std::endl;
+	std::cout << "고객 생년월일 : ";
+	std::cin >> birthday;
+
+	
 }
 
 void Display::ShowHistoryMenu()
 {
+	
+}
 
+void Display::DailyMenu()
+{
+	// 추가할 부분
 }
 
 void Display::Register()
