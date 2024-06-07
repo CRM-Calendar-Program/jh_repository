@@ -10,10 +10,12 @@
 class Display
 {
 private:
-	int center;
+	int center = 0;
 	int box_x = 30;
 	int box_y = 10;
+	DataHandler* DB;
 public:
+	Display(DataHandler& DB) { this->DB = &DB; }
 	void SetCursorPosition(int x, int y);
 	void ShowMenu();
 	void ShowClientMenu();

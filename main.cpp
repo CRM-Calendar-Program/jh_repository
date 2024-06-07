@@ -45,7 +45,7 @@ int main()
 {
     string filename = "test1.csv";
     string filename_o = "test2.csv";
-    Display display;
+    //Display display;
     int size;
 
     //display.ShowMenu();
@@ -53,7 +53,7 @@ int main()
     size = GetSize(filename);
     DataHandler DB(size);
     DB.ReadCSV(filename);
-    DB.FindClient("020110");
+    int id = DB.FindClient("020110");
     DB.WriteCSV(filename_o);
 
     return 0;

@@ -53,7 +53,9 @@ void Display::ShowMileageMenu()
 	std::cout << "고객 생년월일 : ";
 	std::cin >> birthday;
 
-	
+	std::cout << "----------------------------------" << std::endl;
+	int id = DB->FindClient(birthday);
+	// data_handler에 modifyClient 추가
 }
 
 void Display::ShowHistoryMenu()
