@@ -13,9 +13,9 @@ private:
 	int center = 0;
 	int box_x = 30;
 	int box_y = 10;
-	DataHandler* DB;
+	DataHandler& DB;
 public:
-	Display(DataHandler& DB) { this->DB = &DB; }
+	Display(DataHandler& DB) : DB(DB) {};
 	void SetCursorPosition(int x, int y);
 	void ShowMenu();
 	void ShowClientMenu();
@@ -23,7 +23,6 @@ public:
 	void ShowHistoryMenu();
 	void DailyMenu();
 	void Register();
-
 	void CleanDisplay() { system("cls"); }
 };
 
