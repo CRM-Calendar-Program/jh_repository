@@ -57,8 +57,55 @@ void Display::ShowClientMenu()
 	std::cout << "------------고객관리-------------" << std::endl;
 	std::cout << "1. 고객찾기" << std::endl;
 	std::cout << "2. 고객추가" << std::endl;
+	std::cout << std::endl;
+	
+	int repeat = -1;
+	char selection = 0;
+	while (repeat == -1)
+	{
+		while (!_kbhit()) {}
+		selection = _getch();
 
-	// 입력 받고 그에 해당하는 기능 추가
+		std::string birthday;
+		switch (selection)
+		{
+		case '1':
+			std::cout << "---------------------------------" << std::endl;
+			std::cout << "찾으려는 고객의 생년월일을 입력해주세요!!" << std::endl;
+			std::cout << "-> 메인으로 돌아가려면 \'m\'를 입력하세요" << std::endl;
+			while (repeat == -1)
+			{
+				std::cout << "\n";
+				std::cout << ">> ";
+				std::cin >> birthday;
+				if (birthday == "m")
+				{
+					repeat = 0;
+					continue;
+				}
+				std::cout << std::endl;
+				repeat = DB.FindClient(birthday);
+				if (repeat != -1)
+				{
+					std::cout << "\n";
+					std::cout << "메인으로 돌아가려면 \'m\'를 입력하세요>> ";
+					std::cin >> birthday;
+					if (birthday == "m") ShowMenu();
+					else repeat = -1;
+				}
+			}
+			break;
+		case '2':
+			std::cout << "---------------------------------" << std::endl;
+			std::cout << "추가하려는 고객의 정보를 입력해주세요!!" << std::endl;
+			DB.AddClient();
+			ShowMenu();
+		default:
+			std::cout << "잘못된 선택입니다. 다시 시도하세요." << std::endl;
+			Sleep(1000);
+		}
+	}
+	ShowMenu();
 }
 
 void Display::ShowMileageMenu()
@@ -107,4 +154,24 @@ void Display::Register()
 	for (int i = 0; i < box_x; i++)
 		std::cout << "─";
 	std::cout << "┘";
+}
+
+int Display::GetSize(std::string filename)
+{
+	std::ifstream file(filename);
+	if (!file.is_open())
+	{
+		std::cerr << "Unable to open file" << std::endl;
+		return 0;
+	}
+
+	int size = 0;
+	std::string line;
+	while (getline(file, line))
+	{
+		size++;
+	}
+
+	file.close();
+	return size + 10;
 }

@@ -49,10 +49,10 @@ int main()
 
     size = GetSize(filename);
     DataHandler DB(size);
+    DB.ReadCSV(filename);
     Display display(DB);
     display.ShowMenu();
-    DB.ReadCSV(filename);
-    int id = DB.FindClient("020110");
+    //int id = DB.FindClient("020110");
     DB.WriteCSV(filename_o);
 
     return 0;

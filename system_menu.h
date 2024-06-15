@@ -10,12 +10,12 @@
 class Display
 {
 private:
-	int center = 0;
 	int box_x = 30;
 	int box_y = 10;
+	int size;
 	DataHandler& DB;
 public:
-	Display(DataHandler& DB) : DB(DB) {};
+	Display(DataHandler& DB) : DB(DB) {}
 	void SetCursorPosition(int x, int y);
 	void ShowMenu();
 	void ShowClientMenu();
@@ -24,6 +24,7 @@ public:
 	void DailyMenu();
 	void Register();
 	void CleanDisplay() { system("cls"); }
+	int GetSize(std::string filename);
 };
 
 #endif

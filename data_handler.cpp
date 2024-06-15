@@ -67,6 +67,7 @@ void DataHandler::WriteCSV(std::string filename)
 
 int DataHandler::FindClient(std::string birthday)
 {
+	/* 생년월일 중복에 대해 고민할 필요가 있음!!! */
 	for (int i = 0; i < next_pointer; i++)
 		if (clients[i].GetStringData(3) == birthday)
 		{
@@ -80,17 +81,18 @@ int DataHandler::FindClient(std::string birthday)
 void DataHandler::AddClient()
 {
 	std::string input;
-	std::cout << "번호, 이름, 성별, 생일, 전화번호, 방문횟수, 마일리지, 서비스 기록\n" << ">> ";
+	std::cout << "ex) 이름, 성별, 생일, 전화번호, 방문횟수, 마일리지, 서비스 기록" << std::endl;
+	std::cout << "ex) 홍길동,남,010101,000-0000-0000,1,1000,음료\n" << ">> ";
 	getline(std::cin, input);
 
 	std::stringstream ss(input);
 	std::string cell;
 	int index = next_pointer;
-	int col = 0;
+	int col = 1;
 	while (getline(ss, cell, ','))
 	{
-		if (col == id) clients[index].PutIntData(id, index + 1);
-		else if (col == name) clients[index].PutStringData(name, cell);
+		clients[index].PutIntData(id, index + 1);
+		if (col == name) clients[index].PutStringData(name, cell);
 		else if (col == gender) clients[index].PutStringData(gender, cell);
 		else if (col == birthday) clients[index].PutStringData(birthday, cell);
 		else if (col == phone_number) clients[index].PutStringData(phone_number, cell);
