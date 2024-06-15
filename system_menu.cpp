@@ -110,16 +110,34 @@ void Display::ShowClientMenu()
 
 void Display::ShowMileageMenu()
 {
+	/* 마일리지 사용에 대한 코드 추가 */
 	std::string birthday;
+	int repeat = -1;
 
 	CleanDisplay();
 	std::cout << "----------마일리지 관리-----------" << std::endl;
-	std::cout << "고객 생년월일 : ";
-	std::cin >> birthday;
-
-	std::cout << "----------------------------------" << std::endl;
-	int id = DB.FindClient(birthday);
-	// data_handler에 modifyClient 추가
+	std::cout << "찾으려는 고객의 생년월일을 입력해주세요!!" << std::endl;
+	std::cout << "-> 메인으로 돌아가려면 \'m\'를 입력하세요" << std::endl;
+	while (repeat == -1)
+	{
+		std::cout << "\n";
+		std::cout << ">> ";
+		std::cin >> birthday;
+		if (birthday == "m")
+		{
+			repeat = 0;
+			continue;
+		}
+		std::cout << std::endl;
+		repeat = DB.FindClient(birthday);
+		std::cout << std::endl;
+		std::cout << "---------------------------------" << std::endl;
+		int cost = 0;
+		std::cout << "비용을 입력해주세요 >> ";
+		std::cin >> cost;
+		DB.ModifyClient(repeat, cost);
+	}
+	ShowMenu();
 }
 
 void Display::ShowHistoryMenu()

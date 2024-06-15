@@ -78,6 +78,11 @@ int DataHandler::FindClient(std::string birthday)
 	return -1;
 }
 
+void DataHandler::ModifyClient(int id, int data)
+{
+	clients[id - 1].SaveMileage(data);
+}
+
 void DataHandler::AddClient()
 {
 	std::string input;
