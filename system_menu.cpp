@@ -142,7 +142,32 @@ void Display::ShowMileageMenu()
 
 void Display::ShowHistoryMenu()
 {
-	
+	int repeat = -1;
+	std::string birthday;
+	std::cout << "---------------------------------" << std::endl;
+	std::cout << "찾으려는 고객의 생년월일을 입력해주세요!!" << std::endl;
+	std::cout << "-> 메인으로 돌아가려면 \'m\'를 입력하세요" << std::endl;
+	while (repeat == -1)
+	{
+		std::cout << "\n";
+		std::cout << ">> ";
+		std::cin >> birthday;
+		if (birthday == "m")
+		{
+			repeat = 0;
+			continue;
+		}
+		std::cout << std::endl;
+		repeat = DB.FindClient(birthday);
+		if (repeat != -1)
+		{
+			std::cout << "\n";
+			std::cout << "메인으로 돌아가려면 \'m\'를 입력하세요>> ";
+			std::cin >> birthday;
+			if (birthday == "m") ShowMenu();
+			else repeat = -1;
+		}
+	}
 }
 
 void Display::DailyMenu()
