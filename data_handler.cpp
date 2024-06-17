@@ -78,9 +78,11 @@ int DataHandler::FindClient(std::string birthday)
 	return -1;
 }
 
-void DataHandler::ModifyClient(int id, int data)
+void DataHandler::ModifyClientMileage(int id, int cost, int type)
 {
-	clients[id - 1].SaveMileage(data);
+	if (type == 0) clients[id - 1].SaveMileage(cost);
+	else if (type == 1) clients[id - 1].PayMileage(cost);
+	else std::cout << "Does not type" << std::endl;
 }
 
 void DataHandler::AddClient()
