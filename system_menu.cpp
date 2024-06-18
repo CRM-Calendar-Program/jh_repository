@@ -99,7 +99,7 @@ void Display::ShowClientMenu()
 			std::cout << "---------------------------------" << std::endl;
 			std::cout << "추가하려는 고객의 정보를 입력해주세요!!" << std::endl;
 			DB.AddClient();
-			ShowMenu();
+			break;
 		default:
 			std::cout << "잘못된 선택입니다. 다시 시도하세요." << std::endl;
 			Sleep(1000);
@@ -186,7 +186,9 @@ void Display::ShowHistoryMenu()
 {
 	int repeat = -1;
 	std::string birthday;
-	std::cout << "---------------------------------" << std::endl;
+
+	CleanDisplay();
+	std::cout << "----------히스토리 관리-----------" << std::endl;
 	std::cout << "찾으려는 고객의 생년월일을 입력해주세요!!" << std::endl;
 	std::cout << "-> 메인으로 돌아가려면 \'m\'를 입력하세요" << std::endl;
 	while (repeat == -1)
@@ -201,14 +203,12 @@ void Display::ShowHistoryMenu()
 		}
 		std::cout << std::endl;
 		repeat = DB.FindClient(birthday);
-		if (repeat != -1)
-		{
-			std::cout << "\n";
-			std::cout << "메인으로 돌아가려면 \'m\'를 입력하세요>> ";
-			std::cin >> birthday;
-			if (birthday == "m") ShowMenu();
-			else repeat = -1;
-		}
+		std::cout << std::endl;
+		std::cout << "---------------------------------" << std::endl;
+		std::string history;
+		std::cout << "비용을 입력해주세요 >> ";
+		std::cin >> history;
+		DB.ModifyClientHistory(repeat, history);
 	}
 }
 
